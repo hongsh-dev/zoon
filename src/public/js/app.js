@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("https://www.dicopy.org");
 
 const myFace = document.getElementById("myFace");
 const muteBtn = document.getElementById("mute");
