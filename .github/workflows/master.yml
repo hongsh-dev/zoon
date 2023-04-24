@@ -2,7 +2,7 @@ name: s3andCodeDeplying2
 on:
   push:
     branches:
-      - master
+      -
 jobs:
   build:
     runs-on: ubuntu-latest

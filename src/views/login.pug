@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Zoon
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", type="text/css" href="public/css/login.css")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    body 
+        header 
+            h1 login
+        main
+            div.container.mt-3.card.shadow-lg.p-3.mb-5.bg-white.rounded
+                div.form-group
+                    div.form-group
+                        input(placeholder="id", type="text", style="width:100%")
+                    div.form-group
+                        input(placeholder="password", type="password", style="width:100%")
+                    div.form-group
+                        button.btn.btn-primary.mt-3.mr-1(type="button") login
+                        button.btn.btn-primary.mt-3(type="button") join
+                        div.login-with-google-btn.mt-3
+                            a.button.button-link(href="/login/federated/google") Sign in with Google
