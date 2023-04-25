@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+.chat {
+  display: grid;
+  grid-template-areas: "top top" "left right";
+}
+.top {
+  grid-area: top;
+}
+.left {
+  grid-area: left;
+}
+.right {
+  grid-area: right;
+}

@@ -5,6 +5,7 @@ const muteBtn = document.getElementById("mute");
 const cameraBtn = document.getElementById("camera");
 const camerasSelect = document.getElementById("cameras");
 const call = document.getElementById("call");
+const userInfo = document.getElementById("userInfo");
 
 call.hidden = true;
 
@@ -62,10 +63,10 @@ function handleMuteClick() {
     .getAudioTracks()
     .forEach((track) => (track.enabled = !track.enabled)); //current value to opposite
   if (!muted) {
-    muteBtn.innerText = "Unmute";
+    muteBtn.innerText = "음소거 취소";
     muted = true;
   } else {
-    muteBtn.innerText = "Mute";
+    muteBtn.innerText = "음소거";
     muted = false;
   }
 }
@@ -75,10 +76,10 @@ function handleCameraClick() {
     .getVideoTracks()
     .forEach((track) => (track.enabled = !track.enabled)); //current value to opposite
   if (cameraOff) {
-    cameraBtn.innerText = "Turn Camera Off";
+    cameraBtn.innerText = "카메라 끄기";
     cameraOff = false;
   } else {
-    cameraBtn.innerText = "Turn Camera On";
+    cameraBtn.innerText = "카메라 켜기";
     cameraOff = true;
   }
 }

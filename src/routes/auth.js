@@ -41,32 +41,29 @@ passport.use(
       console.log(issuer);
       console.log(profile);
       conn.query(
-        "SELECT * FROM project1.federated_credentials WHERE provider = ? AND subject = ?",
+        "SELECT * FROM projectHC.federated_credentials WHERE provider = ? AND displayName = ?",
         [issuer, profile.id],
         function (err, row) {
           if (err) {
             return done(err);
           }
-          console.log(row);
           if (row.length === 0) {
             conn.query(
-              "INSERT INTO project1.users VALUES (?)",
-              [profile.displayName],
+              "INSERT INTO projectHC.users VALUES (?, ?)",
+              [profile.id, profile.displayName],
               function (err) {
                 if (err) {
                   return done(err);
                 }
-
-                var id = profile.displayName;
                 conn.query(
-                  "INSERT INTO project1.federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)",
-                  [id, issuer, profile.id],
+                  "INSERT INTO projectHC.federated_credentials (user_id, displayName, provider) VALUES (?, ?, ?)",
+                  [profile.id, profile.displayName, issuer],
                   function (err) {
                     if (err) {
                       return done(err);
                     }
                     var user = {
-                      id: id,
+                      id: profile.id,
                       name: profile.displayName,
                     };
                     return done(null, user);
@@ -77,7 +74,7 @@ passport.use(
           } else {
             console.log(row);
             conn.query(
-              "SELECT * FROM project1.users WHERE id = ?",
+              "SELECT * FROM projectHC.users WHERE id = ?",
               [row[0].user_id],
               function (err, row) {
                 if (err) {
@@ -112,8 +109,10 @@ passport.use(
 // });
 
 passport.serializeUser(function (user, done) {
+  console.log(user);
+
   process.nextTick(function () {
-    done(null, user.id);
+    done(null, user);
   });
 });
 
@@ -148,10 +147,10 @@ passport.deserializeUser(function (user, done) {
 
 router.get("/login/federated/google", passport.authenticate("google"));
 router.get(
-  "/auth/google/callback",
+  "/callback",
   passport.authenticate("google", {
-    successRedirect: "/clicking",
-    failureRedirect: "/login",
+    successRedirect: "/",
+    failureRedirect: "/fail",
     failureFlash: true,
   })
 );
