@@ -1,7 +1,7 @@
-name: flow
+name: s3andCodeDeplying
 on:
   push:
-    branches: developing
+    branches: master
       -
 jobs:
   build:
