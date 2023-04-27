@@ -1,4 +1,4 @@
-name: s3andCodeDeplying
+name: prac1
 on:
   push:
     branches: master
