@@ -1,7 +1,7 @@
 name: s3andCodeDeplying
 on:
   push:
-    branches: master
+    branches: developing
       -
 jobs:
   build:
