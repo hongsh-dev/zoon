@@ -1,4 +1,4 @@
-name: s3andCodeDeplying2
+name: s3andCodeDeplying
 on:
   push:
     branches:
@@ -35,10 +35,10 @@ jobs:
           AWS_DEFAULT_REGION: ap-northeast-2
         run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ec2tos3 --s3-location bucket=hshlab-s3,key=zoom/zoom.tar.gz,bundleType=tgz
 
-      - name: deploy to Tokyo
+      - name: deploy to Sydney
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_TK }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_TK }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
-          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_DEFAULT_REGION: ap-southheast-2
         run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ec2tos3 --s3-location bucket=hshlab-s3,key=zoom/zoom.tar.gz,bundleType=tgz
