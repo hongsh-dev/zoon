@@ -25,7 +25,7 @@ jobs:
           aws --version |
           aws s3 ls |
           aws s3 ls s3://hshlab-s3 |
-          aws s3 cp ./zoom.tar.gz s3://hshlab-s3/zoom/
+          aws s3 cp ./zoom.tar.gz s3://hshlab-s3-tk/zoom/
 
       - name: deploy to Seoul
         env:
