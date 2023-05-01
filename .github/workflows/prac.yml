@@ -42,4 +42,4 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
         run: |
           aws --version |
-          aws s3 sync s3://hshlab-s3-tk/zoom/ s3://hshlab-s3-tk/zoom/
+          aws s3 cp s3://hshlab-s3-tk/zoom/ s3://hshlab-s3/zoom/
