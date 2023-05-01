@@ -33,4 +33,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
           AWS_DEFAULT_REGION: ap-northeast-2
-        run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name was --endpoint-url https://bucket.vpce-0bd0d03c526ba2a3d-e93dd00n.s3.ap-northeast-2.vpce.amazonaws.com --s3-location bucket=arn:aws:s3:ap-northeast-2:420391605564:accesspoint/accesstos3,key=zoom/zoom.tar.gz,bundleType=tgz
+        run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name was --endpoint-url https://bucket.vpce-0bd0d03c526ba2a3d-e93dd00n.s3.ap-northeast-2.vpce.amazonaws.com --s3-location bucket=hshlab-s3,key=zoom/zoom.tar.gz,bundleType=tgz
