@@ -20,7 +20,7 @@ jobs:
         run: |
           touch .env |
           echo ${{ secrets.ENV_KEY }} >> .env |
-          cat .env
+          tail -10 .env
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
