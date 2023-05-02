@@ -19,9 +19,8 @@ jobs:
       - name: env
         run: |
           touch .env |
-          cat << EOF > .env |
-          ${{ secrets.ENV_KEY }} |
-          EOF
+          echo ${{ secrets.ENV_KEY }} > .env
+
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
 
