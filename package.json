@@ -20,6 +20,7 @@
     "babel-node": "^0.0.1-security",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.0.3",
+    "dotenv-vault-core": "^0.7.0",
     "express": "^4.18.2",
     "express-mysql-session": "^3.0.0",
     "express-session": "^1.17.3",
