@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "npm run build:server",
-    "build:server": "babel src -d build dotenv/config"
+    "build:server": "babel src -d build"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
