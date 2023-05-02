@@ -1,2 +1,2 @@
 #!/bin/bash
-chown ec2user:ec2user test
+chown ec2-user:ec2-user test
