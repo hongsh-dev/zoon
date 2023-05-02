@@ -14,7 +14,3 @@ hooks:
   BeforeInstall:
     - location: scripts/delete_app.sh
       timeout: 30
-
-  ApplicationStart:
-    - location: scripts/start_app.sh
-      timeout: 30
