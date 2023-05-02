@@ -17,9 +17,18 @@ jobs:
         run: npm run build
 
       - name: env
-        run: touch .env |
-          echo ${{ secrets.PRACTICE1 }} >> .env |
-          cat .env
+        run: |
+          touch .env |
+          cat << EOF |
+          ${{ secrets.DB_HOST }} |
+          ${{ secrets.DB_PORT }} |
+          ${{ secrets.DB_USER }} |
+          ${{ secrets.DB_PW }} |
+          ${{ secrets.DB_DB }} |
+          ${{ secrets.GOOGLE_CLIENT_ID }} |
+          ${{ secrets.GOOGLE_CLIENT_SECRET }} |
+          ${{ secrets.GOOGLE_REDIRECT_URL }} |
+          >.env
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
