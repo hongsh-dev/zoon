@@ -18,7 +18,7 @@ jobs:
 
       - name: env
         run: touch .env |
-          echo ${{ secrets.ENV_KEY }} >> .env
+          echo ${{ secrets.DB_DB }} >> .env
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
