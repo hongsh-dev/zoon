@@ -22,7 +22,7 @@ jobs:
           cat .env
 
       - name: archive file
-        run: tar cvfz ./zoom.tar.gz * --include=.env .
+        run: tar cvfz ./zoom.tar.gz * --include='.env' .
 
       - name: list
         run: ls -la
