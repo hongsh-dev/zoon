@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -rf test
+rm -rf /home/ec2-user/test
