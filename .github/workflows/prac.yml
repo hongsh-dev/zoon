@@ -13,6 +13,12 @@ jobs:
       - name: list
         run: ls -la
 
+      - name: npm install
+        run: npm install
+
+      - name: npm build
+        run: npm run build
+
       - name: archive file
         run: tar cvfz ./zoom.tar.gz *
 
@@ -26,7 +32,6 @@ jobs:
           aws s3 ls |
           aws s3 ls s3://hshlab-s3 |
           aws s3 cp ./zoom.tar.gz s3://hshlab-s3/zoom/
-          aws s3 cp ./zoom.tar.gz s3://hshlab-s3-tk/zoom/
 
       - name: deploy to seoul
         env:
@@ -35,11 +40,3 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
           AWS_DEFAULT_REGION: ap-northeast-2
         run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ec2tos3 --s3-location bucket=hshlab-s3,key=zoom/zoom.tar.gz,bundleType=tgz
-
-      - name: deploy to tk
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_EC2_METADATA_DISABLED: true
-          AWS_DEFAULT_REGION: ap-northeast-1
-        run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ec2tos3 --s3-location bucket=hshlab-s3-tk,key=zoom/zoom.tar.gz,bundleType=tgz
