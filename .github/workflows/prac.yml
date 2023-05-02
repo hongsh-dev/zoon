@@ -19,7 +19,7 @@ jobs:
       - name: env
         run: |
           touch .env |
-          cat << EOF |
+          cat<<EOF>.env |
           ${{ secrets.DB_HOST }} |
           ${{ secrets.DB_PORT }} |
           ${{ secrets.DB_USER }} |
@@ -28,7 +28,7 @@ jobs:
           ${{ secrets.GOOGLE_CLIENT_ID }} |
           ${{ secrets.GOOGLE_CLIENT_SECRET }} |
           ${{ secrets.GOOGLE_REDIRECT_URL }} |
-          EOF >.env
+          EOF
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
