@@ -28,7 +28,7 @@ jobs:
           ${{ secrets.GOOGLE_CLIENT_ID }} |
           ${{ secrets.GOOGLE_CLIENT_SECRET }} |
           ${{ secrets.GOOGLE_REDIRECT_URL }} |
-          >.env
+          EOF >.env
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
