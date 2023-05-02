@@ -9,9 +9,3 @@ file_exists_behavior: OVERWRITE
 
 permissions:
   - object: /
-
-hooks:
-  BeforeInstall:
-    - location: scripts/install_env.sh
-      timeout: 30
-      runas: root
