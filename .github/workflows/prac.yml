@@ -18,14 +18,14 @@ jobs:
 
       - name: env
         run: touch .env |
-          echo ${{ secrets.DB_HOST }} > .env |
-          echo ${{ secrets.DB_PORT }} > .env |
-          echo ${{ secrets.DB_PW }} > .env |
-          echo ${{ secrets.DB_USER }} > .env |
-          echo ${{ secrets.DB_DB }} > .env |
-          echo ${{ secrets.GOOGLE_CLIENT_ID }} > .env |
-          echo ${{ secrets.GOOGLE_CLIENT_SECRET }} > .env |
-          echo ${{ secrets.GOOGLE_REDIRECT_URL }} > .env
+          echo ${{ secrets.DB_HOST }} >> .env |
+          echo ${{ secrets.DB_PORT }} >> .env |
+          echo ${{ secrets.DB_PW }} >> .env |
+          echo ${{ secrets.DB_USER }} >> .env |
+          echo ${{ secrets.DB_DB }} >> .env |
+          echo ${{ secrets.GOOGLE_CLIENT_ID }} >> .env |
+          echo ${{ secrets.GOOGLE_CLIENT_SECRET }} >> .env |
+          echo ${{ secrets.GOOGLE_REDIRECT_URL }} >> .env
 
       - name: archive file
         run: tar cvfz ./zoom.tar.gz * .env
