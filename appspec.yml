@@ -14,6 +14,3 @@ hooks:
   BeforeInstall:
     - location: scripts/delete_app.sh
       timeout: 30
-  AfterInstall:
-    - location: scripts/chown.sh
-      timeout: 30
