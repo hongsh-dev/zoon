@@ -10,9 +10,6 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: list
-        run: ls -la
-
       - name: npm install
         run: npm install
 
@@ -27,21 +24,5 @@ jobs:
       - name: archive file
         run: tar cvfz ./zoom.tar.gz *
 
-      - name: cp s3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_EC2_METADATA_DISABLED: true
-        run: |
-          aws --version |
-          aws s3 ls |
-          aws s3 ls s3://hshlab-s3 |
-          aws s3 cp ./zoom.tar.gz s3://hshlab-s3/zoom/
-
-      - name: deploy to seoul
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_EC2_METADATA_DISABLED: true
-          AWS_DEFAULT_REGION: ap-northeast-2
-        run: aws deploy create-deployment --application-name zoom-from-actions --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ec2tos3 --s3-location bucket=hshlab-s3,key=zoom/zoom.tar.gz,bundleType=tgz
+      - name: list
+        run: ls -la
