@@ -21,7 +21,7 @@ jobs:
 
       - name: env
         run: touch .env |
-          echo ${{secrets.PRACTICE} >> .env |
+          echo ${{ secrets.PRACTICE }} >> .env |
           cat .env
 
       - name: archive file
