@@ -22,7 +22,7 @@ jobs:
           cat .env
 
       - name: archive file
-        run: tar cvfz ./zoom.tar.gz . --exclude='.github,.vscode,.gitignore' .
+        run: tar cvfz ./zoom.tar.gz * .env
 
       - name: list
         run: ls -la
