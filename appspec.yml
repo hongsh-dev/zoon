@@ -5,7 +5,6 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/test/
-file_exists_behavior: OVERWRITE
 
 permissions:
   - object: /
@@ -17,4 +16,5 @@ hooks:
   AfterInstall:
     - location: scripts/chown.sh
       timeout: 30
+  ApplicationStart:
     - location: scripts/start_app.sh
