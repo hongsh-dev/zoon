@@ -16,5 +16,3 @@ hooks:
   AfterInstall:
     - location: scripts/chown.sh
       timeout: 30
-  ApplicationStart:
-    - location: scripts/start_app.sh
